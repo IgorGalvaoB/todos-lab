@@ -1,8 +1,8 @@
 const { Schema, model } = require("mongoose")
 const userSchema = new Schema(
     {
-        name:{
-            required:true,
+        name: {
+            required: true,
         },
         email: {
             type: String,
@@ -12,9 +12,15 @@ const userSchema = new Schema(
             required: true,
             match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
         },
+        passwordHash: {
+            type: String, required: true
+        },
+        todos: [{
+            type: Schema.Types.ObjectId, ref: 'Todo'
+        }]
     },
     {
-        timestamps:true,
+        timestamps: true,
     }
 );
 
