@@ -3,6 +3,7 @@ const userSchema = new Schema(
     {
         name: {
             required: true,
+            type: String,
         },
         email: {
             type: String,
@@ -12,8 +13,9 @@ const userSchema = new Schema(
             required: true,
             match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
         },
-        passwordHash: {
-            type: String, required: true
+        password: {
+            type: String, 
+            required: true
         },
         todos: [{
             type: Schema.Types.ObjectId, ref: 'Todo'

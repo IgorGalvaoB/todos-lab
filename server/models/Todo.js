@@ -3,7 +3,6 @@ const todoSchema = new Schema(
     {
         name:{
             type:String,
-            unique:true
         },
         completed:{
             type:Boolean,
